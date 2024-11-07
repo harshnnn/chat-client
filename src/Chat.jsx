@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import io from "socket.io-client";
 
-const socket = io('https://chat-api-git-main-harshnnns-projects.vercel.app/');
+// Connect to the server with socket.io
+const socket = io("https://chat-api-git-main-harshnnns-projects.vercel.app", {
+    transports: ["websocket", "polling"]
+});
 
 const Chat = () => {
     const [message, setMessage] = useState("");
@@ -19,8 +22,8 @@ const Chat = () => {
 
     const sendMessage = () => {
         if (message.trim()) {
-            socket.emit("sendMessage", message); // sending message to the server
-            setMessage(""); // clearing the input field
+            socket.emit("sendMessage", message);
+            setMessage("");
         }
     };
 
