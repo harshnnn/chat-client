@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import io from "socket.io-client";
 
 // Connect to the server with socket.io
-const socket = io("https://chat-api-git-main-harshnnns-projects.vercel.app", {
+const socket = io("https://chat-api-self-seven.vercel.app/", {
     transports: ["websocket", "polling"]
 });
 
